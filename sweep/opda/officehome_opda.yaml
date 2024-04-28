@@ -1,0 +1,73 @@
+program: train_can.py
+method: grid
+project: CAN
+name: officehome_opda
+metric:
+  goal: maximize
+  name: SVC
+parameters:
+  config:
+    values: ['configs/officehome-train-config_OPDA.yaml']
+  source_data:
+    values: [
+      # './txt/officehome/UniDA/source_Art_univ.txt',
+      './txt/officehome/UniDA/source_Clipart_univ.txt',
+      # './txt/officehome/UniDA/source_Product_univ.txt',
+      # './txt/officehome/UniDA/source_Real_univ.txt',
+      ]
+  target_data:
+    values: [
+      './txt/officehome/UniDA/target_Art_univ.txt',
+      './txt/officehome/UniDA/target_Clipart_univ.txt',
+      './txt/officehome/UniDA/target_Product_univ.txt',
+      './txt/officehome/UniDA/target_Real_univ.txt',
+      ]
+  v_latent:
+    values: [10]
+  sigmaP:
+    values: [50]
+  augNearRate:
+    values: [10000]
+  lr:
+    values: [
+      0.01,
+      # 0.02
+      ]
+  min_step:
+    values: [10000]
+  gamma:
+    values: [0.6]
+  alpha:
+    values: [0.5]
+  data_aug_crop:
+    values: [
+      0.7, 
+      0.8
+      ]
+  ent_open_scale:
+    values: [0.1]
+  aug_type:
+    values: [1]
+  beta:
+    values: [
+      1.2, 
+      1.4,
+      ]
+  batch_size:
+    values: [
+      36,
+      50, 
+      64,
+      ]
+  mlp_weight_decay:
+    values: [0.0005]
+
+  # start_idx:
+  #   values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  # best_k: 
+  #   values: [30,31,32,33,34,35,36,37,38,39,40]
+  gpu_devices:
+    values: [
+      # 0,
+      1
+      ]

@@ -1,0 +1,75 @@
+program: train_can.py
+method: grid
+project: CAN
+name: office_oda
+metric:
+  goal: maximize
+  name: SVC
+parameters:
+  config:
+    values: ['configs/office-train-config_ODA.yaml']
+  source_data:
+    values: [
+      './txt/office/ODA/source_amazon_oda.txt',
+      './txt/office/ODA/source_dslr_oda.txt',
+      './txt/office/ODA/source_webcam_oda.txt',
+      ]
+  target_data:
+    values: [
+      './txt/office/ODA/target_amazon_oda.txt',
+      './txt/office/ODA/target_dslr_oda.txt',
+      './txt/office/ODA/target_webcam_oda.txt',
+      ]
+  alpha:
+    values:
+      - 0.7
+      # - 0.9
+  aug_type:
+    values:
+      - 1
+  augNearRate:
+    values:
+      - 10000
+  batch_size:
+    values:
+      - 36
+  beta:
+    values:
+      - 1.4
+  data_aug_crop:
+    values:
+      # - 0.7
+      - 0.8
+  ent_open_scale:
+    values:
+      # - 0.2
+      # - 0.3
+      - 0.4
+  gamma:
+    values:
+      # - 0.4
+      # - 0.5
+      - 0.6
+  lr:
+    values:
+      # - 0.005
+      - 0.01
+      # - 0.02
+  min_step:
+    values:
+      - 10000
+  mlp_weight_decay:
+    values:
+      - 0.0002
+  sigmaP:
+    values:
+      - 10
+  v_latent:
+    values:
+      - 10
+  start_idx:
+    values: [0,1,2,3,4,5,6,7,8,9]
+
+
+
+

@@ -1,0 +1,66 @@
+program: train_can.py
+method: grid
+project: CAN
+name: domainnet_opda
+metric:
+  goal: maximize
+  name: SVC
+parameters:
+  config:
+    values:
+      - configs/dnet-train-config_OPDA.yaml
+  source_data:
+    values:
+      - ./txt/domainnet/UniDA/source_dpainting_univ.txt
+      - ./txt/domainnet/UniDA/source_dreal_univ.txt
+      - ./txt/domainnet/UniDA/source_dsketch_univ.txt
+  target_data:
+    values:
+      - ./txt/domainnet/UniDA/target_dpainting_univ.txt
+      - ./txt/domainnet/UniDA/target_dreal_univ.txt
+      - ./txt/domainnet/UniDA/target_dsketch_univ.txt
+  alpha:
+    values:
+      - 0.9
+  aug_type:
+    values:
+      - 1
+  augNearRate:
+    values:
+      - 10000
+  batch_size:
+    values:
+      - 80
+  beta:
+    values:
+      - 1.4
+  data_aug_crop:
+    values:
+      - 0.8
+      - 0.75
+      - 0.85
+  ent_open_scale:
+    values:
+      - 0.6
+      - 0.55
+      - 0.5
+  gamma:
+    values:
+      - 0.4
+      - 0.35
+  lr:
+    values:
+      - 0.012
+  min_step:
+    values:
+      - 15000
+  mlp_weight_decay:
+    values:
+      - 0.0002
+  sigmaP:
+    values:
+      - 50
+
+  v_latent:
+    values:
+      - 10
